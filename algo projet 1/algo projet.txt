@@ -1,0 +1,148 @@
+// ** projet n 001 library **
+#include <stdio.h> 
+// ** cree un enregistrement ** 
+ struct livres { 
+    char titre[100]; 
+    char NomAuteur[100] ; 
+    char PrenomAuteur[100] ; 
+    char MaisonPub[100] ; 
+    int CodeIsbn[100] ; 
+    int DatePub[100] ; 
+}; 
+    // **fonction pour declarer un enregistrement **
+    void create (){ 
+       struct livres T[100];   
+       int n , i; 
+       printf("donner le nombre des livres :"); 
+       scanf("%d",&n); 
+       for(i=0;i<n;i++){ 
+    printf("titre : "); 
+    scanf("%s",T[i].titre); 
+    printf("NomAuteur : "); 
+    scanf("%s",T[i].NomAuteur); 
+    printf("PrenomAuteur : "); 
+    scanf("%s",T[i].PrenomAuteur); 
+    printf("MaisonPub : "); 
+    scanf("%s",T[i].MaisonPub); 
+    printf("CodeIsbn : "); 
+    scanf("%ls",T[i].CodeIsbn); 
+    printf("DatePub : "); 
+    scanf("%ls",T[i].DatePub); 
+        
+    } 
+    } 
+    // **fonction pour afficher les info des livres ** 
+    void display (){  
+ struct livres T[100]; 
+        int n, i; 
+        for(i=0;i<n;i++){ 
+        printf("\nyour books info are \n"); 
+         
+            printf("%s,%s,%s,%s,%ls,%ls",T[i].titre,T[i].NomAuteur,T[i].PrenomAuteur,T[i].MaisonPub,T[i].CodeIsbn,T[i].DatePub); 
+        } 
+         
+    } 
+    //** function to search by ISBN CODE **
+    void search (){ 
+        struct livres info; 
+        int code_isbn,found=0;
+        printf("enter code ISBN : ",code_isbn); 
+        scanf("%d",&code_isbn);
+        if(info.CodeIsbn==code_isbn){
+            found;
+    scanf("%s",info.NomAuteur); 
+    scanf("%s",info.PrenomAuteur); 
+    scanf("%s",info.MaisonPub); 
+    scanf("%ls",info.CodeIsbn); 
+    scanf("%ls",info.DatePub);
+        printf("titre : %s ",info.titre); 
+    printf("NomAuteur : %s",info.NomAuteur); 
+    printf("PrenomAuteur %s : ",info.PrenomAuteur); 
+    printf("MaisonPub : %s",info.MaisonPub); 
+    printf("CodeIsbn : %ls",info.CodeIsbn); 
+    printf("DatePub : %ls",info.DatePub); 
+ 
+    } 
+            if(!found){ 
+                printf("not found "); 
+            } 
+        } 
+      // ** function to delete a book by his position **   
+    void delete (){ 
+        struct livres T[100];
+        int size;
+        int pos ;
+        int i;
+        printf(" enter the position of the book to delete :");
+        scanf("%d",&pos);
+        if (pos<0 || pos>size){
+            printf("invalid position , please enter position between 1 to %d",size);
+        }
+         else{
+             for(i=pos-1;i<size-1;i++){
+                 T[i]=T[i+1];
+             }
+         }
+         size--;
+         
+    } 
+    //** updating ISBN code of the book **
+    void update  (){ 
+        struct livres T[100];
+        int i;
+        int a;
+        int b;
+        int size;
+        printf("enter the code ISBN of the book to be updated :");
+        scanf("%ls",&T[a].CodeIsbn);
+            printf("\nenter new code isbn :");
+            scanf("%ls",&T[b].CodeIsbn);
+            for(i=0;i<size;i++){
+                T[a].CodeIsbn==T[b].CodeIsbn;
+        scanf("%ls=%ls",T[a].CodeIsbn,T[b].CodeIsbn);
+        scanf("%ls",T[b].CodeIsbn);
+                printf("%ls",T[b].CodeIsbn);
+        
+            
+                
+            }
+        }
+
+        
+ 
+int main(){ 
+    // menu  
+  int n ; 
+  do { 
+      printf("\nmenu"); 
+      printf("\n_____________________________________"); 
+      printf("\n.1-CREATE"); 
+     printf("\n.2-DISPLAY"); 
+     printf("\n.3-SEARCH"); 
+     printf("\n.4-DELETE"); 
+     printf("\n.5-UPDATE"); 
+     printf("\n.0-EXIT"); 
+     printf("\n______________________________________"); 
+     printf("\nentrer votre choix :"); 
+     scanf("%d",&n); 
+     switch (n){ 
+         case 1 : 
+         create(); 
+         break; 
+         case 2 : 
+         display(); 
+         break; 
+         case 3 : 
+         search (); 
+         break; 
+         case 4 : 
+         delete(); 
+         break; 
+         case 5 : 
+         update(); 
+         break; 
+     } 
+       
+  } 
+while(n!=0); 
+}
